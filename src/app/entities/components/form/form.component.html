@@ -1,0 +1,44 @@
+<div class="form">
+  <div class="dx-field">
+    <div class="dx-field-label">
+      Имя владельца
+    </div>
+    <div class="dx-field-value">
+      <dx-text-box [formControl]="ownerNameControl"
+                   [isValid]="ownerNameControl.valid || ownerNameControl.untouched"
+                   [showClearButton]="true"/>
+    </div>
+  </div>
+  <div class="dx-field">
+    <div class="dx-field-label">
+      Дата обращения
+    </div>
+    <div class="dx-field-value">
+      <dx-text-box [formControl]="dateControl"
+                   [isValid]="dateControl.valid || dateControl.untouched"
+                   [showClearButton]="true"/>
+    </div>
+  </div>
+  <div class="dx-field">
+    <div class="dx-field-label">
+      Марка машины
+    </div>
+    <div class="dx-field-value">
+      <dx-text-box [formControl]="carMarkControl"
+                   [isValid]="carMarkControl.valid || carMarkControl.untouched"
+                   [showClearButton]="true"/>
+    </div>
+  </div>
+  <div class="dx-field">
+    <div class="dx-field-label">
+      Номер машины
+    </div>
+    <div class="dx-field-value">
+      <dx-text-box [formControl]="carNumberControl"
+                   [isValid]="carNumberControl.valid || carNumberControl.untouched"
+                   [showClearButton]="true"/>
+    </div>
+  </div>
+  <dx-button (click)="addCarInfo()"
+             text="Добавить нового клиента"/>
+</div>
