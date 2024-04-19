@@ -1,36 +1,23 @@
 <dx-button (onClick)="showPopup()"
            text="Добавить клиента">
 </dx-button>
-<dx-data-grid
-  [dataSource]="carsInfo | async"
-  [allowColumnReordering]="false"
-  [showBorders]="true"
-  keyExpr="id">
-  <dxi-column
-    [dataField]="LCarInfo.OWNER_NAME"
-    caption="Имя владельца">
-  </dxi-column>
-  <dxi-column
-    [dataField]="LCarInfo.OWNER_PHONE_NUMBER"
-    caption="Номер телефона">
-  </dxi-column>
-  <dxi-column
-    [dataField]="LCarInfo.CAR_MARK"
-    caption="Марка машины">
-  </dxi-column>
-  <dxi-column
-    [dataField]="LCarInfo.DATE"
-    caption="Дата заправки">
-  </dxi-column>
-  <dxi-column
-    [dataField]="LCarInfo.QUANTITY_OF_OIL"
-    caption="Кол-во купленного топлива">
-  </dxi-column>
-  <dxo-editing
-    [allowDeleting]="true"
-    caption="Удалить обращения"
-    mode="row">
-  </dxo-editing>
+<dx-data-grid [dataSource]="carsInfo | async"
+              [allowColumnReordering]="false"
+              [showBorders]="true"
+              [keyExpr]="LCarInfo.ID">
+  <dxi-column [dataField]="LCarInfo.OWNER_NAME"
+              caption="Имя владельца"/>
+  <dxi-column [dataField]="LCarInfo.OWNER_PHONE_NUMBER"
+              caption="Номер телефона"/>
+  <dxi-column [dataField]="LCarInfo.CAR_MARK"
+              caption="Марка машины"/>
+  <dxi-column [dataField]="LCarInfo.DATE"
+              dataType="date"
+              caption="Дата заправки"/>
+  <dxi-column [dataField]="LCarInfo.QUANTITY_OF_OIL"
+              caption="Кол-во купленного топлива (литры)"/>
+  <dxo-editing [allowDeleting]="true"
+               mode="row"/>
 </dx-data-grid>
 <dx-popup [height]="450"
           [width]="600"
@@ -38,8 +25,7 @@
           [visible]="isPopupVisible"
           (onHidden)="close()"
           title="Добавление клиента">
-  <app-form [(isPopupVisible)]="isPopupVisible">
-  </app-form>
+  <app-form [(isPopupVisible)]="isPopupVisible"/>
 </dx-popup>
 
 

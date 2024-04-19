@@ -16,11 +16,11 @@ export class CarInfoFormBuilderService {
    */
   public get carInfoForm(): FormGroup {
     return this._formBuilder.group({
-      [LCarInfo.OWNER_NAME]: [null, [Validators.required]],
+      [LCarInfo.OWNER_NAME]: [null, [Validators.required, Validators.pattern(/^(?!\s)[А-Яа-яЁё\sa-zA-Z]*(?<!\s)$/)]],
       [LCarInfo.OWNER_PHONE_NUMBER]: [null, [Validators.required]],
       [LCarInfo.DATE]: [null, [Validators.required]],
       [LCarInfo.CAR_MARK]: [null, [Validators.required]],
-      [LCarInfo.QUANTITY_OF_OIL]: [null, [Validators.required]],
+      [LCarInfo.QUANTITY_OF_OIL]: [null, [Validators.required, Validators.pattern(/^\d+$/)]],
       [LCarInfo.HAS_DISCOUNT_CARD]: [false, [Validators.required]],
     });
   }

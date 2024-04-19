@@ -6,7 +6,8 @@
     <div class="dx-field-value">
       <dx-text-box [formControl]="ownerNameControl"
                    [isValid]="ownerNameControl.valid || ownerNameControl.untouched"
-                   [showClearButton]="true"/>
+                   [showClearButton]="true">
+      </dx-text-box>
     </div>
   </div>
   <div class="dx-field">
@@ -17,8 +18,7 @@
       <dx-text-box [formControl]="ownerPhoneNumber"
                    [isValid]="ownerPhoneNumber.valid || ownerPhoneNumber.untouched"
                    [showClearButton]="true"
-                   [maskRules]="phoneRules"
-                   mask="+7 (X00) 000-0000"/>
+                   mask="+7 (000) 000-00 00"/>
     </div>
   </div>
   <div class="dx-field">
@@ -51,19 +51,20 @@
       Наличие дисконтной карты
     </div>
     <div class="dx-field-value">
-      <dx-check-box
-        [value]="false"
-      ></dx-check-box>
+      <dx-check-box [formControl]="hasDiscountCardControl"
+                    [value]="false"/>
     </div>
   </div>
   <div class="dx-field">
     <div class="dx-field-label">
-      Кол-во купленного топлива
+      Кол-во купленного топлива (в литрах)
     </div>
     <div class="dx-field-value">
       <dx-text-box [formControl]="quantityOfOilControl"
                    [isValid]="quantityOfOilControl.valid || quantityOfOilControl.untouched"
-                   [showClearButton]="true"/>
+                   [showClearButton]="true">
+                   [showClearButton]="true">
+      </dx-text-box>
     </div>
   </div>
   <dx-button (click)="addCarInfo()"

@@ -19,9 +19,9 @@ export class FormComponent {
   @Output()
   public isPopupVisibleChange: EventEmitter<false> = new EventEmitter<false>();
 
-  public phoneRules: DxTextBoxTypes.Properties['maskRules'] = {
-    X: /[02-9]/,
-  };
+  // public phoneRules: DxTextBoxTypes.Properties['maskRules'] = {
+  //   X: /[02-9]/,
+  // };
 
   public minDate: Date = new Date(1900, 0, 1);
   public currentDate: Date = new Date();
@@ -42,10 +42,9 @@ export class FormComponent {
   public addCarInfo (): void {
     const carInfo: ICarInfo = this.carInfoForm.getRawValue();
     carInfo[LCarInfo.OWNER_PHONE_NUMBER] = Number('8' + String(carInfo[LCarInfo.OWNER_PHONE_NUMBER]));
-    if (this.carInfoForm.valid || true) {
+    if (this.carInfoForm.valid) {
       this._appService.addCarInfo(carInfo);
       this.carInfoForm.reset();
-      console.log(carInfo);
     }
     this.close();
   }

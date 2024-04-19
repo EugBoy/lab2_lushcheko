@@ -17,17 +17,16 @@ export class AppService {
 
   /**
    * Добавление нового клиента
-   * @param {any} carInfo - информация о клиенте
+   * @param {ICarInfo} carInfo - информация о клиенте
    */
-  public addCarInfo(carInfo: any): void {
+  public addCarInfo(carInfo: ICarInfo): void {
     const currentValue: any = this._carsInfo.value;
     let id: number = 1;
-    const len = currentValue.length;
-    console.log(currentValue);
+    const len: number = currentValue.length;
     if (len > 0) {
       id = currentValue[len-1].id + 1;
     }
-    carInfo.id = id;
+    carInfo[LCarInfo.ID] = id;
     this._carsInfo.next([...currentValue, carInfo]);
   }
 
