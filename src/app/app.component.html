@@ -7,20 +7,24 @@
   [showBorders]="true"
   keyExpr="id">
   <dxi-column
-    dataField="ownerName"
+    [dataField]="LCarInfo.OWNER_NAME"
     caption="Имя владельца">
   </dxi-column>
   <dxi-column
-    dataField="carMark"
+    [dataField]="LCarInfo.OWNER_PHONE_NUMBER"
+    caption="Номер телефона">
+  </dxi-column>
+  <dxi-column
+    [dataField]="LCarInfo.CAR_MARK"
     caption="Марка машины">
   </dxi-column>
   <dxi-column
-    dataField="date"
+    [dataField]="LCarInfo.DATE"
     caption="Дата заправки">
   </dxi-column>
   <dxi-column
-    dataField="carNumber"
-    caption="Номер машины">
+    [dataField]="LCarInfo.QUANTITY_OF_OIL"
+    caption="Кол-во купленного топлива">
   </dxi-column>
   <dxo-editing
     [allowDeleting]="true"
@@ -28,10 +32,10 @@
     mode="row">
   </dxo-editing>
 </dx-data-grid>
-<dx-popup [height]="400"
+<dx-popup [height]="350"
+          [width]="600"
           [hideOnOutsideClick]="true"
           [visible]="isPopupVisible"
-          [width]="500"
           (onHidden)="close()"
           title="Добавление клиента">
   <app-form [(isPopupVisible)]="isPopupVisible">

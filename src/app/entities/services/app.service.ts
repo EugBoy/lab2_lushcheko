@@ -9,12 +9,11 @@ import {ICarInfo} from "../interfaces/car-info.interface";
 export class AppService {
   private _carsInfo: BehaviorSubject<ICarInfo[]> = new BehaviorSubject<ICarInfo[]>(
     [
-      {[LCarInfo.ID]: 1, [LCarInfo.OWNER_NAME]:'Alex', [LCarInfo.DATE]: '18.03.2024', [LCarInfo.CAR_MARK]: 'AUDI', [LCarInfo.CAR_NUMBER]: 'А001АА'},
-      {[LCarInfo.ID]: 2, [LCarInfo.OWNER_NAME]:'John', [LCarInfo.DATE]: '20.03.2024', [LCarInfo.CAR_MARK]: 'BMW', [LCarInfo.CAR_NUMBER]: 'B001АB'},
+      {[LCarInfo.ID]: 1, [LCarInfo.OWNER_NAME]:'Alex', [LCarInfo.DATE]: '18.03.2024', [LCarInfo.CAR_MARK]: 'AUDI', [LCarInfo.QUANTITY_OF_OIL]: 45, [LCarInfo.HAS_DISCOUNT_CAR]: true, [LCarInfo.OWNER_PHONE_NUMBER]: 89991235689},
+      {[LCarInfo.ID]: 2, [LCarInfo.OWNER_NAME]:'John', [LCarInfo.DATE]: '20.03.2024', [LCarInfo.CAR_MARK]: 'BMW', [LCarInfo.QUANTITY_OF_OIL]: 34, [LCarInfo.HAS_DISCOUNT_CAR]: false, [LCarInfo.OWNER_PHONE_NUMBER]: 89991235689},
     ]
   );
   public carsInfo: Observable<ICarInfo[]> = this._carsInfo.asObservable();
-  constructor() {}
 
   public addCarInfo(carInfo: any): void {
     const currentValue: any = this._carsInfo.value;

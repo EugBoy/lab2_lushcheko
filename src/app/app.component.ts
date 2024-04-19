@@ -12,13 +12,17 @@ import {ICarInfo} from "./entities/interfaces/car-info.interface";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  // private _appService = Inject(AppService);
+
   public isPopupVisible: boolean = false;
 
   public carsInfo: Observable<any> = this._appService.carsInfo;
 
+  // public LCarInfo: typeof LCarInfo = LCarInfo;
+
   constructor (
     private readonly _appService: AppService,
-    ) {}
+  ) {}
 
   public showPopup(){
     this.isPopupVisible = !this.isPopupVisible;

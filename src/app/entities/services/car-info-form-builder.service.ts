@@ -9,7 +9,6 @@ export class CarInfoFormBuilderService {
 
   constructor(
     private readonly _formBuilder: FormBuilder
-
   ) { }
 
   /**
@@ -17,10 +16,12 @@ export class CarInfoFormBuilderService {
    */
   public get carInfoForm(): FormGroup {
     return this._formBuilder.group({
-      [LCarInfo.OWNER_NAME]: ['', [Validators.required]],
-      [LCarInfo.DATE]: ['', [Validators.required]],
-      [LCarInfo.CAR_MARK]: ['', [Validators.required]],
-      [LCarInfo.CAR_NUMBER]: ['', [Validators.required]]
+      [LCarInfo.OWNER_NAME]: [null, [Validators.required]],
+      [LCarInfo.OWNER_PHONE_NUMBER]: [null, [Validators.required]],
+      [LCarInfo.DATE]: [null, [Validators.required]],
+      [LCarInfo.CAR_MARK]: [null, [Validators.required]],
+      [LCarInfo.QUANTITY_OF_OIL]: [null, [Validators.required]],
+      [LCarInfo.HAS_DISCOUNT_CAR]: [false, [Validators.required]],
     });
   }
 }

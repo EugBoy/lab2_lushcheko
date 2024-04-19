@@ -4,6 +4,7 @@ import {LCarInfo} from "../../labels/car-info.label";
 import {AppService} from "../../services/app.service";
 import {CarInfoFormBuilderService} from "../../services/car-info-form-builder.service";
 import {ICarInfo} from "../../interfaces/car-info.interface";
+import {CarMarksConst} from "../../consts/carMarks.const";
 
 @Component({
   selector: 'app-form',
@@ -40,6 +41,10 @@ export class FormComponent {
     return this.carInfoForm.get([LCarInfo.OWNER_NAME]) as FormControl<string | null>;
   }
 
+  public get ownerPhoneNumber (): FormControl {
+    return this.carInfoForm.get([LCarInfo.OWNER_PHONE_NUMBER]) as FormControl<number | null>;
+  }
+
   public get dateControl(): FormControl {
     return this.carInfoForm.get([LCarInfo.DATE]) as FormControl<string | null>;
   }
@@ -49,6 +54,8 @@ export class FormComponent {
   }
 
   public get carNumberControl(): FormControl {
-    return this.carInfoForm.get([LCarInfo.CAR_NUMBER]) as FormControl<string | null>;
+    return this.carInfoForm.get([LCarInfo.QUANTITY_OF_OIL]) as FormControl<string | null>;
   }
+
+  protected readonly CarMarksConst = CarMarksConst;
 }

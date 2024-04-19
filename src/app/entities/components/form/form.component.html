@@ -11,6 +11,16 @@
   </div>
   <div class="dx-field">
     <div class="dx-field-label">
+      Номер телефона
+    </div>
+    <div class="dx-field-value">
+      <dx-text-box [formControl]="ownerNameControl"
+                   [isValid]="ownerNameControl.valid || ownerNameControl.untouched"
+                   [showClearButton]="true"/>
+    </div>
+  </div>
+  <div class="dx-field">
+    <div class="dx-field-label">
       Дата обращения
     </div>
     <div class="dx-field-value">
@@ -23,15 +33,16 @@
     <div class="dx-field-label">
       Марка машины
     </div>
-    <div class="dx-field-value">
-      <dx-text-box [formControl]="carMarkControl"
+    <dx-select-box [dataSource]="CarMarksConst"
+                   [formControl]="carMarkControl"
                    [isValid]="carMarkControl.valid || carMarkControl.untouched"
-                   [showClearButton]="true"/>
-    </div>
+                   [showClearButton]="true"
+                   class="dx-field-value">
+    </dx-select-box>
   </div>
   <div class="dx-field">
     <div class="dx-field-label">
-      Номер машины
+      Кол-во купленного топлива
     </div>
     <div class="dx-field-value">
       <dx-text-box [formControl]="carNumberControl"
