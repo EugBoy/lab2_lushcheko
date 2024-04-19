@@ -5,6 +5,7 @@ import {AppService} from "../../services/app.service";
 import {CarInfoFormBuilderService} from "../../services/car-info-form-builder.service";
 import {ICarInfo} from "../../interfaces/car-info.interface";
 import {CarMarksConst} from "../../consts/carMarks.const";
+import {DxTextBoxTypes} from "devextreme-angular/ui/text-box";
 
 @Component({
   selector: 'app-form',
@@ -12,27 +13,46 @@ import {CarMarksConst} from "../../consts/carMarks.const";
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
-  public carInfoForm: FormGroup = this._carInfoFormBuilderService.carInfoForm;
+  @Input()
+  public isPopupVisible: boolean = false;
 
-  @Input() public isPopupVisible: boolean = false;
   @Output()
   public isPopupVisibleChange: EventEmitter<false> = new EventEmitter<false>();
+
+  public phoneRules: DxTextBoxTypes.Properties['maskRules'] = {
+    X: /[02-9]/,
+  };
+
+  public minDate: Date = new Date(1900, 0, 1);
+  public currentDate: Date = new Date();
+
+  public carInfoForm: FormGroup = this._carInfoFormBuilderService.carInfoForm;
+
+
+  public CarMarksConst: string[] = CarMarksConst;
 
   constructor(
     private readonly _appService: AppService,
     private readonly _carInfoFormBuilderService: CarInfoFormBuilderService
-  ) {
-  }
+  ) {}
 
+  /**
+   * Добавление нового клиента
+   */
   public addCarInfo (): void {
     const carInfo: ICarInfo = this.carInfoForm.getRawValue();
-    if (this.carInfoForm.valid) {
+    carInfo[LCarInfo.OWNER_PHONE_NUMBER] = Number('8' + String(carInfo[LCarInfo.OWNER_PHONE_NUMBER]));
+    if (this.carInfoForm.valid || true) {
       this._appService.addCarInfo(carInfo);
       this.carInfoForm.reset();
+      console.log(carInfo);
     }
     this.close();
   }
 
+  /**
+   * Закрытие popup`а
+   */
   public close(): void {
     this.isPopupVisibleChange.emit(false);
   }
@@ -53,9 +73,11 @@ export class FormComponent {
     return this.carInfoForm.get([LCarInfo.CAR_MARK]) as FormControl<string | null>;
   }
 
-  public get carNumberControl(): FormControl {
+  public get quantityOfOilControl(): FormControl {
     return this.carInfoForm.get([LCarInfo.QUANTITY_OF_OIL]) as FormControl<string | null>;
   }
 
-  protected readonly CarMarksConst = CarMarksConst;
+  public get hasDiscountCardControl(): FormControl {
+    return this.carInfoForm.get([LCarInfo.HAS_DISCOUNT_CARD]) as FormControl<boolean | null>;
+  }
 }

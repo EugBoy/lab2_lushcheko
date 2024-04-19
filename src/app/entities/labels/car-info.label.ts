@@ -5,5 +5,5 @@ export enum LCarInfo {
   DATE = 'date',
   CAR_MARK = 'carMark',
   QUANTITY_OF_OIL = 'quantityOfOil',
-  HAS_DISCOUNT_CAR = 'hasDiscountCar'
+  HAS_DISCOUNT_CARD = 'hasDiscountCard'
 }

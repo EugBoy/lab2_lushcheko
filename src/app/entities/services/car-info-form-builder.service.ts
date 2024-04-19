@@ -21,7 +21,7 @@ export class CarInfoFormBuilderService {
       [LCarInfo.DATE]: [null, [Validators.required]],
       [LCarInfo.CAR_MARK]: [null, [Validators.required]],
       [LCarInfo.QUANTITY_OF_OIL]: [null, [Validators.required]],
-      [LCarInfo.HAS_DISCOUNT_CAR]: [false, [Validators.required]],
+      [LCarInfo.HAS_DISCOUNT_CARD]: [false, [Validators.required]],
     });
   }
 }

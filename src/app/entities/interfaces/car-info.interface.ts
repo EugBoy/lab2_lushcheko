@@ -9,5 +9,5 @@ export interface ICarInfo {
   [LCarInfo.DATE]: string;
   [LCarInfo.CAR_MARK]: string;
   [LCarInfo.QUANTITY_OF_OIL]: number;
-  [LCarInfo.HAS_DISCOUNT_CAR]: boolean;
+  [LCarInfo.HAS_DISCOUNT_CARD]: boolean;
 }

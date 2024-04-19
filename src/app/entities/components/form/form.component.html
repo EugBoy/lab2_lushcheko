@@ -14,9 +14,11 @@
       Номер телефона
     </div>
     <div class="dx-field-value">
-      <dx-text-box [formControl]="ownerNameControl"
-                   [isValid]="ownerNameControl.valid || ownerNameControl.untouched"
-                   [showClearButton]="true"/>
+      <dx-text-box [formControl]="ownerPhoneNumber"
+                   [isValid]="ownerPhoneNumber.valid || ownerPhoneNumber.untouched"
+                   [showClearButton]="true"
+                   [maskRules]="phoneRules"
+                   mask="+7 (X00) 000-0000"/>
     </div>
   </div>
   <div class="dx-field">
@@ -24,9 +26,13 @@
       Дата обращения
     </div>
     <div class="dx-field-value">
-      <dx-text-box [formControl]="dateControl"
+      <dx-date-box [formControl]="dateControl"
                    [isValid]="dateControl.valid || dateControl.untouched"
-                   [showClearButton]="true"/>
+                   [showClearButton]="true"
+                   [min]="minDate"
+                   [max]="currentDate">
+                   type="datetime">
+      </dx-date-box>
     </div>
   </div>
   <div class="dx-field">
@@ -42,11 +48,21 @@
   </div>
   <div class="dx-field">
     <div class="dx-field-label">
+      Наличие дисконтной карты
+    </div>
+    <div class="dx-field-value">
+      <dx-check-box
+        [value]="false"
+      ></dx-check-box>
+    </div>
+  </div>
+  <div class="dx-field">
+    <div class="dx-field-label">
       Кол-во купленного топлива
     </div>
     <div class="dx-field-value">
-      <dx-text-box [formControl]="carNumberControl"
-                   [isValid]="carNumberControl.valid || carNumberControl.untouched"
+      <dx-text-box [formControl]="quantityOfOilControl"
+                   [isValid]="quantityOfOilControl.valid || quantityOfOilControl.untouched"
                    [showClearButton]="true"/>
     </div>
   </div>
